@@ -127,6 +127,27 @@ td.name{font-weight:800;white-space:nowrap}
 details{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-s);padding:16px 18px;margin-bottom:10px}
 summary{font-weight:800;cursor:pointer;font-size:16px}
 details p{color:var(--muted);margin:10px 0 0;font-size:15px}
+/* Head-to-head comparison */
+.vs-intro{font-size:17px;color:var(--muted);max-width:72ch;margin:0 0 16px}
+.vs-answer{border-left:4px solid var(--teal);background:var(--surface2);padding:16px 18px;border-radius:0 var(--radius-s) var(--radius-s) 0;font-size:15.5px;margin:0 0 22px}
+.vs-answer b{color:var(--teal)}
+.vs-table{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);margin-bottom:22px}
+.vs-row{display:grid;grid-template-columns:180px 1fr 1fr;border-bottom:1px solid var(--line)}
+.vs-row:last-child{border-bottom:none}
+.vs-row>div{padding:14px 16px;font-size:14.5px;vertical-align:top}
+.vs-row>div+div{border-left:1px solid var(--line)}
+.vs-row.head{background:var(--surface2)}
+.vs-row.head>div{font-family:"Playfair Display",Georgia,serif;font-size:18px;font-weight:700}
+.vs-crit{font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--surface2)}
+.vs-cell b{display:block;margin-bottom:3px}
+.vs-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+@media (max-width:900px){
+  .vs-row{grid-template-columns:1fr}
+  .vs-row>div+div{border-left:none;border-top:1px dashed var(--line)}
+  .vs-row.head{display:none}
+  .vs-crit{background:var(--surface2)}
+  .vs-cell b{display:block;margin-bottom:2px}
+}
 footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
 footer .wrap{border-top:1px solid var(--line);padding-top:20px}
 .src{font-size:13px}
@@ -157,7 +178,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
       <div class="hero-meta">
         <span class="chip"><b>8</b> программ в обзоре</span>
         <span class="chip"><b>3</b> полностью бесплатные опции</span>
-        <span class="chip">Цены - от <b>$0</b> до <b>$249.99</b></span>
+        <span class="chip">Цены - от <b>$0</b> до <b>$199.99</b></span>
       </div>
       <div class="btnrow">
         <a class="btn primary" href="#reviews">Читать обзоры</a>
@@ -210,6 +231,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
     <div class="section-head">
       <h2>Сравнение в одной таблице</h2>
       <p>Фильтруйте по задаче. Оценка - сводная: форматирование, структура, совместная работа, экспорт и цена владения за 3 года.</p>
+      <p>Два лидера подробно, лицом к лицу: <a href="#final-draft-vs-fade-in"><b>Final Draft vs Fade In - что выбрать сценаристу в 2026 году</b></a></p>
     </div>
     <div class="filters" role="group" aria-label="Фильтр программ">
       <button class="fbtn active" data-filter="all">Все программы</button>
@@ -223,13 +245,13 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
       <table aria-label="Сравнение программ для сценариев">
         <thead><tr><th>Программа</th><th>Оценка</th><th>Цена</th><th>Платформы</th><th>Сильная сторона</th><th>Кому подходит</th></tr></thead>
         <tbody id="compare-body">
-          <tr data-tags="pro onetime"><td class="name">Final Draft 13</td><td class="score">9.2</td><td>$249.99 разово</td><td>Win, Mac, iOS</td><td>Ревизии и производство</td><td>Профи, студии</td></tr>
-          <tr data-tags="team free cloud"><td class="name">Clotho.pro</td><td class="score">9.0</td><td>Бесплатно + Pro</td><td>Web</td><td>Доска + аналитика структуры</td><td>Авторы полного метра и сериалов</td></tr>
+          <tr data-tags="pro onetime"><td class="name">Final Draft 13</td><td class="score">9.2</td><td>$199.99 разово (<s>$249.99</s> - обычная цена)</td><td>Win, Mac, iOS</td><td>Ревизии и производство</td><td>Профи, студии</td></tr>
+          <tr data-tags="team free cloud"><td class="name">Clotho.pro</td><td class="score">9.0</td><td>Free $0 навсегда; Pro $9.99 в месяц + налог или $90 в год + налог ($7.50 в месяц при годовой оплате)</td><td>Web</td><td>Доска + аналитика структуры</td><td>Авторы полного метра и сериалов</td></tr>
           <tr data-tags="pro onetime"><td class="name">Fade In</td><td class="score">8.8</td><td>$79.95 разово</td><td>Win, Mac, Linux, iOS, Android</td><td>Цена и скорость</td><td>Соло-авторы</td></tr>
           <tr data-tags="team free cloud"><td class="name">Arc Studio Pro</td><td class="score">8.9</td><td>Бесплатно / $99 в год</td><td>Web, Mac, iOS</td><td>Современный интерфейс, аутлайн</td><td>Начинающие и инди</td></tr>
-          <tr data-tags="team free cloud"><td class="name">WriterDuet</td><td class="score">8.7</td><td>Бесплатно / от $89 в год</td><td>Web, Win, Mac, мобильные</td><td>Совместное письмо</td><td>Соавторы, сценарные комнаты</td></tr>
-          <tr data-tags="team cloud pro"><td class="name">Celtx</td><td class="score">8.1</td><td>От $15 в месяц</td><td>Web, iOS, Android</td><td>Сценарий + предпродакшн</td><td>Небольшие продакшн-команды</td></tr>
-          <tr data-tags="onetime"><td class="name">Highland Pro</td><td class="score">8.5</td><td>$49.99 разово</td><td>Mac, iOS</td><td>Минимализм, Fountain</td><td>Пользователи Mac</td></tr>
+          <tr data-tags="team free cloud"><td class="name">WriterDuet</td><td class="score">8.7</td><td>Бесплатно / Plus $7.49 в месяц при годовой оплате</td><td>Web, Win, Mac, мобильные</td><td>Совместное письмо</td><td>Соавторы, сценарные комнаты</td></tr>
+          <tr data-tags="team cloud pro"><td class="name">Celtx</td><td class="score">8.1</td><td>Writer $14.99 в месяц</td><td>Web, iOS, Android</td><td>Сценарий + предпродакшн</td><td>Небольшие продакшн-команды</td></tr>
+          <tr><td class="name">Highland Pro</td><td class="score">8.5</td><td>$59.99 в год или $9.99 в месяц</td><td>Mac, iOS</td><td>Минимализм, Fountain</td><td>Пользователи Mac</td></tr>
           <tr data-tags="onetime pro"><td class="name">Scrivener</td><td class="score">8.3</td><td>$59.99 разово</td><td>Win, Mac, iOS</td><td>Исследование и большой материал</td><td>Авторы адаптаций и романов</td></tr>
         </tbody>
       </table>
@@ -252,7 +274,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         </div>
         <div class="ratingbox"><div class="rating-num">9.2<small>/10</small></div><div class="bar"><i style="width:92%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge price">$249.99 - разовая покупка</span><span class="badge">Windows / macOS / iPad / iPhone</span><span class="badge">FDX - родной формат</span><span class="badge">Пробный период 30 дней</span></div>
+      <div class="badges"><span class="badge price">$199.99 - разовая покупка (<s>$249.99</s> - обычная цена на официальном сайте)</span><span class="badge">Windows / macOS / iPad / iPhone</span><span class="badge">FDX - родной формат</span><span class="badge">Пробный период 30 дней</span></div>
       <p>Final Draft автоматически форматирует и разбивает сценарий по страницам по голливудскому стандарту, пока Вы печатаете. Сила программы не в редакторе, а в том, что вокруг нее построено производство: Beat Board для структуры, Outline Editor, отслеживание ревизий с цветными страницами, отчеты для съемочной группы и блокировка страниц на этапе продакшна.</p>
       <p>Слабые места тоже известны: интерфейс выглядит старше конкурентов, совместная работа заметно уступает облачным редакторам, а крупные обновления платные - 99-129 долларов, поэтому «разовая покупка» на дистанции 5-7 лет стоит дороже подписки Arc Studio.</p>
       <div class="script-snippet">INT. КАФЕ - ДЕНЬ
@@ -268,6 +290,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
       </div>
       <div class="verdict"><b>Вердикт:</b> покупать, когда сценарии реально уходят в производство или Вас об этом прямо просит студия. Для первого черновика его мощность избыточна.</div>
       <div class="review-foot"><span class="who">Кому: профессиональным сценаристам, сериалам, студийным проектам</span><a href="https://www.finaldraft.com" target="_blank" rel="noopener">finaldraft.com</a></div>
+      <div class="review-foot"><span class="who">Смотрите также: <a href="#final-draft-vs-fade-in">Final Draft vs Fade In - прямое сравнение</a> и <a href="#compare">сравнительную таблицу</a></span></div>
     </article>
 
     <!-- Clotho -->
@@ -279,7 +302,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         </div>
         <div class="ratingbox"><div class="rating-num">9.0<small>/10</small></div><div class="bar"><i style="width:90%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge free">Есть бесплатный план</span><span class="badge price">Pro - экспорт FDX и соавтор</span><span class="badge">Web - работает в браузере</span><span class="badge">Импорт FDX на любом плане</span></div>
+      <div class="badges"><span class="badge free">Есть бесплатный план</span><span class="badge price">Free - $0 навсегда; Pro - $9.99 в месяц + налог или $90 в год + налог ($7.50 в месяц при годовой оплате)</span><span class="badge">Pro - экспорт FDX и соавтор</span><span class="badge">Web - работает в браузере</span><span class="badge">Импорт FDX на любом плане</span></div>
       <p><b>Главная идея.</b> В Clotho доска и сценарий - это одна история в двух видах. Создали карточку сцены на доске - сцена уже появилась в скрипте. Перетащили карточку - сценарий перестроился следом. Акты с трекингом готовности, карточки сцен с сюжетными линиями и таймингом, фильтры по персонажу или линии: можно изолировать одну нить и проверить, не провисает ли она на 20 минут.</p>
       <p><b>Редактор.</b> Классическое индустриальное форматирование, горячие клавиши для каждого элемента, навигатор сцен с живым таймингом и история версий. Это полноценный редактор, а не «планировщик в довесок».</p>
       <p><b>Аналитика - то, чего нет у Final Draft.</b> Дашборд сценария: соотношение диалога и действия, карта темпа, INT/EXT, день/ночь, плотность текста, индикаторы бюджета. Плюс рекомендации по структуре: программа замечает, когда линия затихает. Пример с сайта: «Главный герой отсутствует 21 минуту подряд (сцены 12-18). Если история про его путь, такой провал ослабляет вовлечение». Это не ИИ, который пишет за Вас, а инструмент, который показывает слепые зоны.</p>
@@ -313,7 +336,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
       </div>
       <div class="verdict"><b>Вердикт:</b> если Вы пишете один и хотите «как Final Draft, только дешевле» - это он. Рациональная покупка на годы.</div>
       <div class="review-foot"><span class="who">Кому: соло-авторам, инди-кино, авторам на Linux</span><a href="https://www.fadeinpro.com" target="_blank" rel="noopener">fadeinpro.com</a></div>
-      <div class="review-foot"><span class="who">Смотрите также: <a href="#final-draft">Final Draft</a> (если нужны продакшн-ревизии), <a href="#writerduet">WriterDuet</a> (если пишете вдвоем) и <a href="#clotho">Clotho.pro</a> (если нужна структура и аналитика), а также <a href="#compare">сравнительную таблицу</a></span></div>
+      <div class="review-foot"><span class="who">Смотрите также: <a href="#final-draft">Final Draft</a> (если нужны продакшн-ревизии), <a href="#writerduet">WriterDuet</a> (если пишете вдвоем) и <a href="#clotho">Clotho.pro</a> (если нужна структура и аналитика), а также <a href="#compare">сравнительную таблицу</a> и <a href="#final-draft-vs-fade-in">прямое сравнение Final Draft vs Fade In</a></span></div>
     </article>
 
     <!-- Arc Studio -->
@@ -322,7 +345,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         <div><h3>Arc Studio Pro</h3><p class="tagline">Самый современный и дружелюбный интерфейс в жанре. Облако, аутлайн и совместная работа из коробки.</p></div>
         <div class="ratingbox"><div class="rating-num">8.9<small>/10</small></div><div class="bar"><i style="width:89%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge free">Бесплатно - 2 сценария</span><span class="badge price">Pro - $99 в первый год, $79 продление</span><span class="badge">Web / Mac / iOS</span></div>
+      <div class="badges"><span class="badge free">Бесплатно - 2 сценария</span><span class="badge price">Pro - $99 в год</span><span class="badge">Web / Mac / iOS</span></div>
       <p>Arc Studio строится вокруг идеи, что структура идет перед страницами: биты, аутлайн и карточки связаны с текстом, форматирование не ломается, а совместное редактирование и комментарии работают как в Google Docs. Для новичка это самый низкий порог входа: программа подсказывает формат и не пугает продакшн-терминами.</p>
       <p>Обратная сторона подписки: за 3 года Вы заплатите примерно как за Final Draft, а при отмене подписки теряете Pro-функции. На бесплатном тарифе PDF уходит с водяным знаком.</p>
       <div class="pc">
@@ -339,7 +362,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         <div><h3>WriterDuet и WriterSolo</h3><p class="tagline">Эталон совместного письма: два-три автора в одном документе, в реальном времени, из браузера.</p></div>
         <div class="ratingbox"><div class="rating-num">8.7<small>/10</small></div><div class="bar"><i style="width:87%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge free">Бесплатно - 3 проекта</span><span class="badge price">Pro - от $89 в год</span><span class="badge">Web / десктоп / мобильные</span><span class="badge">WriterSolo - бесплатная соло-версия</span></div>
+      <div class="badges"><span class="badge free">Бесплатно - 3 проекта</span><span class="badge price">Plus - $7.49 в месяц при годовой оплате</span><span class="badge">Web / десктоп / мобильные</span><span class="badge">WriterSolo - бесплатная соло-версия</span></div>
       <p>WriterDuet решили одну задачу лучше всех: соавторство. Видно каждое изменение, есть встроенные комментарии, чат и даже видеосвязь, история правок не теряется, а ссылки «только чтение» удобно отправлять продюсеру на заметки. Для сценарных комнат и пар авторов это до сих пор стандарт де-факто среди облачных инструментов.</p>
       <p>WriterSolo - та же база для одного автора, бесплатно и без лимита проектов. Компромисс пары: глубина продакшн-инструментов и структурной аналитики уступает Final Draft и Clotho, а платный тариф нужен довольно быстро, как только проектов станет больше трех.</p>
       <div class="pc">
@@ -356,7 +379,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         <div><h3>Celtx</h3><p class="tagline">Не только сценарий, а весь предпродакшн в одном месте: от страницы до расписания съемок.</p></div>
         <div class="ratingbox"><div class="rating-num">8.1<small>/10</small></div><div class="bar"><i style="width:81%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge price">От $15 в месяц</span><span class="badge">Web / iOS / Android</span><span class="badge">Сценарий + продакшн-пак</span></div>
+      <div class="badges"><span class="badge price">Writer - $14.99 в месяц</span><span class="badge">Web / iOS / Android</span><span class="badge">Сценарий + продакшн-пак</span></div>
       <p>Celtx начинался как бесплатный редактор, а вырос в облачный продакшн-комбайн: сценарий связан с разбивкой, каталогом реквизита, расписанием и бюджетными инструментами. Для небольшой команды, которая сама снимает свое кино, это снимает боль стыковки пяти разных программ.</p>
       <p>Как чистый редактор Celtx слабее лидеров списка: форматирование и ревизии уступают Final Draft и Fade In, точные тарифы часто видны только после регистрации, а подписка бьет по карману соло-автора, которому продакшн-модули не нужны.</p>
       <div class="pc">
@@ -373,11 +396,11 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
         <div><h3>Highland Pro</h3><p class="tagline">Минимализм от практикующего сценариста Джона Огаста. Пишете в Fountain - программа сама собирает красивую страницу.</p></div>
         <div class="ratingbox"><div class="rating-num">8.5<small>/10</small></div><div class="bar"><i style="width:85%"></i></div></div>
       </div>
-      <div class="badges"><span class="badge price">$49.99 - разово</span><span class="badge">Только Mac и iOS</span><span class="badge">Fountain - родной формат</span></div>
+      <div class="badges"><span class="badge price">$59.99 в год или $9.99 в месяц - подписка</span><span class="badge">Только Mac и iOS</span><span class="badge">Fountain - родной формат</span></div>
       <p>Highland убирает все лишнее: Вы пишете обычным текстом в разметке Fountain, а редактор на лету превращает его в правильно оформленный сценарий. Никаких панелей, отвлекающих кнопок и продакшн-шума. Для авторов, которые думают текстом, а не карточками, это самый быстрый и спокойный черновик.</p>
       <p>Ограничение очевидно: экосистема только Apple. Нет Windows, нет облачной совместной работы, а продакшн-функции сознательно минимальны - финальную ревизионную работу многие все равно делают в Final Draft.</p>
       <div class="pc">
-        <div class="pc-box pros"><h4>Плюсы</h4><ul><li>Самый чистый, неотвлекающий процесс письма</li><li>Нативное macOS-приложение, очень быстрое</li><li>Честная разовая цена</li><li>Fountain-файлы переживут любую программу</li></ul></div>
+        <div class="pc-box pros"><h4>Плюсы</h4><ul><li>Самый чистый, неотвлекающий процесс письма</li><li>Нативное macOS-приложение, очень быстрое</li><li>Подписка - $59.99 в год или $9.99 в месяц</li><li>Fountain-файлы переживут любую программу</li></ul></div>
         <div class="pc-box cons"><h4>Минусы</h4><ul><li>Только Mac и iOS</li><li>Нет совместной работы</li><li>Минимум продакшн-инструментов</li></ul></div>
       </div>
       <div class="verdict"><b>Вердикт:</b> идеальный черновик для пользователя Mac, который ценит скорость и тишину. Для продакшна держите рядом экспорт в FDX.</div>
@@ -402,6 +425,75 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
     </article>
   </section>
 
+  <section class="section" id="final-draft-vs-fade-in" aria-label="Сравнение Final Draft и Fade In">
+    <div class="section-head">
+      <h2>Final Draft vs Fade In - что выбрать сценаристу в 2026 году</h2>
+    </div>
+    <p class="vs-intro">Сравнение Final Draft 13 и Fade In: цена, платформы, ревизии, совместная работа и форматы. Кому подходит стандарт индустрии, а кому - редактор без подписки.</p>
+    <div class="vs-answer"><b>Короткий ответ:</b> Если сценарий уходит продюсерам и в производство - Final Draft: его файлы и ревизионный workflow ждут студии. Если Вы пишете один и хотите профессиональный редактор без подписки - Fade In: те же базовые профи-функции заметно дешевле и с версией для Linux.</div>
+
+    <div class="vs-table" role="table" aria-label="Таблица сравнения Final Draft 13 и Fade In">
+      <div class="vs-row head" role="row">
+        <div role="columnheader"></div>
+        <div role="columnheader">Final Draft 13</div>
+        <div role="columnheader">Fade In</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Цена</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>Текущая $199.99, обычная (перечёркнутая) цена $249.99</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>$79.95 разово</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Модель оплаты</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>Разовая покупка; отдельно подписка Final Draft Suite - $99.99 в год или $16.99 в месяц, дает доступ к Final Draft Cloud и к Final Draft 13 на время подписки</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>Разовая покупка, без подписки; обновления включены</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Платформы</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>Windows 11 и новее, macOS 12 (Monterey) и новее; отдельное приложение Final Draft Go для iOS</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>Windows, macOS, Linux, iOS, Android</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Родной формат и обмен</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>FDX, родной формат, файлы принимают студии и производство</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>FDX открывается и сохраняется корректно, экспорт в PDF</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Ревизии и производство</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>Beat Board, Outline Editor, отслеживание ревизий, цветные ревизионные страницы, отчеты, блокировка страниц; вход одновременно на двух компьютерах</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>Форматирование, ревизии, блокировка страниц, продакшн-правки, организация и навигация</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Совместная работа</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>В десктопной версии слабее облачных редакторов; облачные инструменты в составе Final Draft Suite</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>Нет совместного редактирования в реальном времени уровня WriterDuet</div>
+      </div>
+      <div class="vs-row" role="row">
+        <div class="vs-crit" role="rowheader">Пробная версия</div>
+        <div class="vs-cell" role="cell"><b>Final Draft 13</b>Пробный период 30 дней</div>
+        <div class="vs-cell" role="cell"><b>Fade In</b>Бесплатная демо-версия; PDF из демо - с водяным знаком</div>
+      </div>
+    </div>
+
+    <div class="pc">
+      <div class="pc-box pros"><h4>Плюсы Final Draft 13</h4><ul><li>Принимают везде (студии, агенты, конкурсы)</li><li>Лучшие инструменты ревизий и продакшн-отчетов</li><li>Beat Board и структура внутри одного файла</li></ul></div>
+      <div class="pc-box cons"><h4>Минусы Final Draft 13</h4><ul><li>Самая высокая цена входа в списке</li><li>Платные крупные обновления</li><li>Нет версии для Linux и Android</li></ul></div>
+    </div>
+    <div class="pc">
+      <div class="pc-box pros"><h4>Плюсы Fade In</h4><ul><li>Лучшее соотношение цены и профессиональных функций</li><li>Самая широкая поддержка платформ, включая Linux</li><li>Бесплатные обновления, а не платные версии каждый цикл</li></ul></div>
+      <div class="pc-box cons"><h4>Минусы Fade In</h4><ul><li>Нет реального совместного редактирования</li><li>Меньше обучающих материалов и комьюнити</li><li>Демо ставит водяной знак на PDF</li></ul></div>
+    </div>
+
+    <div class="verdict"><b>Вердикт:</b> выбирайте Final Draft, когда сценарии реально уходят в производство или студия прямо просит этот формат. Выбирайте Fade In, когда Вы пишете один, считаете деньги и не хотите подписку, - особенно на Linux, где у Final Draft версии нет.</div>
+
+    <div class="review-foot"><span class="who">Кому подходит: Final Draft - профессиональным сценаристам, сериалам, студийным проектам. Fade In - соло-авторам, инди-кино, авторам на Linux.</span></div>
+    <div class="vs-links">
+      <a class="btn" href="#final-draft">Читать обзор Final Draft 13</a>
+      <a class="btn" href="#fade-in">Читать обзор Fade In</a>
+      <a class="btn" href="#compare">Сравнительная таблица на главной</a>
+    </div>
+  </section>
+
   <section class="section" id="quiz">
     <div class="quiz">
       <h2>Подобрать программу под Вас</h2>
@@ -420,7 +512,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
     <div class="section-head"><h2>Как выбирать: три правила</h2></div>
     <div class="guide">
       <div class="guide-card"><div class="num">01</div><h3>Сначала экспорт, потом удобство</h3><p>Проверьте, что программа отдает чистый FDX или Fountain. Это Ваш выход, если завтра Вы смените редактор или файл попросит студия. Нет экспорта - нет покупки, каким бы красивым ни был интерфейс.</p></div>
-      <div class="guide-card"><div class="num">02</div><h3>Считайте цену за 3 года</h3><p>Final Draft за $249.99 разово, Arc Studio за $99 + $79 + $79 и Fade In за $79.95 один раз - это три разные экономики. Подписка окупается совместной работой, разовая покупка - долгой соло-работой.</p></div>
+      <div class="guide-card"><div class="num">02</div><h3>Считайте цену за 3 года</h3><p>Final Draft за $199.99 разово (обычная цена $249.99), Arc Studio за $99 + $99 + $99 и Fade In за $79.95 один раз - это три разные экономики. Подписка окупается совместной работой, разовая покупка - долгой соло-работой.</p></div>
       <div class="guide-card"><div class="num">03</div><h3>Структура - отдельный инструмент</h3><p>Если Ваши черновики разваливаются к третьему акту, новый редактор текста не поможет. Нужна доска, аналитика линий и тайминга - это сильная сторона Clotho, Beat Board у Final Draft и аутлайн у Arc Studio.</p></div>
     </div>
   </section>
@@ -489,7 +581,7 @@ footer .wrap{border-top:1px solid var(--line);padding-top:20px}
   var recs = {
     clotho: {name:'Clotho.pro', why:'Ваша боль - структура, а не страница. Доска, линии персонажей, тайминг и алерты о провисаниях закроют именно ее, а бесплатный план и импорт FDX позволяют начать без риска.', alt:'Запасной вариант: Arc Studio Pro - если захотите более привычный облачный редактор с аутлайном.', link:'#clotho'},
     finaldraft: {name:'Final Draft 13', why:'Для студийной продажи и производства это стандарт: ревизии, продакшн-отчеты и файл, который примут без вопросов.', alt:'Запасной вариант: Fade In - тот же FDX и продакшн-функции за $79.95, если бюджет ограничен.', link:'#final-draft'},
-    fadein: {name:'Fade In', why:'Профессиональное форматирование и FDX за разовые $79.95 без подписки - лучшая экономика для соло-автора.', alt:'Запасной вариант: Highland Pro за $49.99, если Вы на Mac и любите Fountain.', link:'#fade-in'},
+    fadein: {name:'Fade In', why:'Профессиональное форматирование и FDX за разовые $79.95 без подписки - лучшая экономика для соло-автора.', alt:'Запасной вариант: Highland Pro - $59.99 в год или $9.99 в месяц, если Вы на Mac и любите Fountain.', link:'#fade-in'},
     writerduet: {name:'WriterDuet', why:'Совместная работа в реальном времени - его главная специализация. Для пары авторов и сценарных комнат удобнее не найти.', alt:'Запасной вариант: Arc Studio Pro - тоже облако и совместная работа, плюс сильный аутлайн.', link:'#writerduet'},
     free: {name:'WriterSolo + Clotho (бесплатный план)', why:'Ноль долларов и ноль тупиков: WriterSolo для текста без лимита проектов, Clotho - для доски, структуры и импорта FDX.', alt:'Запасной вариант: бесплатные тарифы Arc Studio (2 сценария) и WriterDuet (3 проекта) для пробы облака.', link:'#writerduet'},
     scrivener: {name:'Scrivener', why:'Когда сценарий растет из большого материала - архивы, исследования, мир - Scrivener держит все рядом с текстом и собирает итог в FDX.', alt:'Запасной вариант: Clotho - если материала меньше, а важнее линии и структура.', link:'#scrivener'},
